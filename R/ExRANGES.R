@@ -12,10 +12,12 @@
 calc.slopes<-function(time.series, cycle=F, last.time.step){
   slopes<-apply(time.series,1,function(x) getrowdiff(rw = x, cycle = cycle, last.time.step = last.time.step))
   if(cycle==F){
-    rownames(slopes)<-colnames(time.series)[1:(length(colnames(time.series))-1)]
+    rownames(slopes)<-paste(paste(as.numeric(sapply(strsplit(rownames(slopes), split = "_"), FUN = function(x) x[1]))-1, rownames(slopes), sep = "->"))
   }
   else{
-    rownames(slopes)<-colnames(time.series)[1:length(colnames(time.series))]
+    rownames(slopes)<-paste(ifelse(test = as.numeric(sapply(strsplit(rownames(slopes), split = "_"), FUN = function(x) x[1]))-1==0,
+                                              yes = max(as.numeric(sapply(strsplit(rownames(slopes), split = "_"), FUN = function(x) x[1]))),
+                                              no =  as.numeric(sapply(strsplit(rownames(slopes), split = "_"), FUN = function(x) x[1])) -1), rownames(slopes), sep = "->")
   }
   return(slopes)
 }

@@ -14,7 +14,7 @@ The following two functions are used to calcuates the RANGES values to be used t
 \arguments{
 calc.slopes()
 
-time.series - A matrix with rows as genes and column as sample names. Samples must be labeled as XX_samplename, XX=Numeric number for time.
+time.series - A matrix with rows as genes and columns as sample names. Samples must be labeled as XX_samplename, XX=Numeric number for time.
 
 cycle - If data is cyclical then define the last time step form the last column to the first.
 
