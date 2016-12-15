@@ -1,7 +1,9 @@
 \name{ExRANGES}
 \alias{calc.slope}
 \alias{sample.pval.calc}
-\title{RANGES Functions}
+\alias{ExRANGES}
+\alias{RANGES}
+\title{ExRANGES Functions}
 \usage{
 calc.slopes(time.series, cycle=F, last.time.step)
 
