@@ -35,8 +35,10 @@ getrowdiff<-function(rw, cycle, last.time.step){
   return(diffnums)
 }
 GRD2<-function(x, samples, rw){
-
+  if(length((samples[which(samples[x] < samples)])) > 0) {
   ret<-(rw[which(samples == min(samples[which(samples[x]<samples)]))]-rw[x])/abs((min(samples[which(samples[x]<samples)])-samples[x]))
+  }
+  else{ret<-NULL}
   return(ret)
 }
 GRD2.C<-function(x, samples, rw, last.time.step){
@@ -84,3 +86,4 @@ pvals.transform<-function(pvals, sample.size){
   pvals<--(pvals)
   return(pvals)
 }
+
